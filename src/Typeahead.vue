@@ -72,7 +72,13 @@ const typeahead = {
         default(items) {
           this.reset()
           this.query = items
-        }
+        },
+      },
+      onReset: {
+        type: Function,
+        default() {
+
+        },
       },
       placeholder: {
         type: String
@@ -127,6 +133,8 @@ const typeahead = {
         this.query = ''
         this.loading = false
         this.showDropdown = false
+        
+        this.onReset();
       },
       setActive(index) {
         this.current = index
